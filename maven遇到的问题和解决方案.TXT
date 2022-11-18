@@ -1,0 +1,29 @@
+idea问题：Cannot resolve plugin org.apache.maven.plugins:maven-clean-plugin:2.5
+
+解决方案：删除repository下的所有文件，刷新项目。
+
+----------------------------------------------------------------------------------------
+maven安装配置
+1、解压apache-maven-3.5.4-bin.zip到指定目录（目录中不要包含中文）
+
+2、配置环境变量
+	系统变量   新建 
+		变量名 :  MAVEN_HOME
+		变量值 :  D:\apache-maven-3.5.4
+	系统变量   path   添加 : %MAVEN_HOME%\bin
+
+3、cmd命令行  mvn -version
+配置maven本地仓库以及阿里云镜像
+打开D:\apache-maven-3.5.4\conf\settings.xml配置文件
+
+a、在<settings>标签下添加本地仓库路径
+<localRepository>D:/repository</localRepository>
+
+b、在<mirrors>标签下添加阿里云镜像
+<mirror>
+	<id>alimaven</id>
+	<mirrorOf>central</mirrorOf>
+	<name>aliyun maven</name>
+	<url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+</mirror>
+
